@@ -1,0 +1,52 @@
+<!--Header-->
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button clear (click)="onReturn()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title class="title">Comments</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<!--Body-->
+<ion-content padding class="image-comments">
+
+<ion-grid>
+
+  <ion-row>
+    <ion-col col-2>
+      <ion-avatar item-start>
+        <img src="assets/test_images/Cloud_Strife.jpg">
+      </ion-avatar>
+    </ion-col>
+    <ion-col  col-10>
+  <p><b>Post-User</b> Comment</p>
+  <ion-note>Date</ion-note>
+    </ion-col>
+</ion-row>
+
+  <ion-row>
+    <ion-col  col-2>
+      <ion-avatar item-start>
+        <img src="assets/test_images/Barret_Wallace.jpg">
+      </ion-avatar>
+    </ion-col>
+    <ion-col  col-10>
+  <p><b>User</b>  Lorem ipsum vestibulum rutrum maecenas tellus eros tempus blandit
+    Lorem ipsum vestibulum rutrum maecenas tellus eros tempus blandit
+    Lorem ipsum vestibulum rutrum maecenas tellus eros tempus blandit</p>
+    <ion-note>Date</ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+
+  <ion-footer>
+    <ion-item>
+      <ion-input type="text" value=""  placeholder="Add Comment"></ion-input>
+    </ion-item>
+  </ion-footer>
+</ion-content>

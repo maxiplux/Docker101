@@ -1,0 +1,80 @@
+<!--Head-->
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onAddPerson()">
+        <ion-icon name="person-add" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onLoadSettings()">
+        <ion-icon name="settings" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title class="title">Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--Body-->
+<ion-content padding class="image-comments">
+
+<ion-grid>
+
+  <ion-row>
+<ion-col col-3>
+  <ion-item>
+  <ion-avatar item-start>
+    <img src="assets/test_images/Cloud_Strife.jpg">
+  </ion-avatar>
+</ion-item>
+</ion-col>
+
+    <ion-col col-3>
+      <div class="userProperties">
+        <b>#</b>
+        <p>posts</p>
+      </div>
+    </ion-col>
+    <ion-col col-3>
+      <div class="userProperties">
+        <b>#</b>
+        <p>Following</p>
+      </div>
+    </ion-col>
+    <ion-col col-3>
+      <div class="userProperties">
+        <b>#</b>
+        <p>Followers</p>
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col  col-6 push-3 pull-3>
+      <button ion-button  full  round>Follow</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <b >User</b>
+    <p>Lorem ipsum posuere ante ad ultrices etiam amet, auctor quam sociosqu
+       sed tempus orci morbi, velit semper eros turpis magna cubilia.</p>
+  </ion-row>
+
+  <!--<ion-row  *ngFor="let img of images">
+    <ion-col col-4><img src="assets/test_images/{{img}}"></ion-col>
+  </ion-row>-->
+
+</ion-grid>
+
+<div class="pins">
+  <div  class="pin" *ngFor="let img of images">
+    <img  src="assets/test_images/{{img}}"/>
+  </div>
+</div>
+
+
+
+
+</ion-content>

@@ -1,0 +1,22 @@
+<!--Header-->
+<ion-header>
+  <ion-navbar>
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<!--Body-->
+
+<ion-content  padding>
+  <ion-list *ngFor="let img of images">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img  src="assets/test_images/{{img}}"/>
+      </ion-avatar>
+      <h2>UserName</h2>
+      <button ion-button clear item-end>Follow</button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

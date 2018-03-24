@@ -1,0 +1,61 @@
+<!--Header-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button clear (click)="onPostItem()">Post</button>
+    </ion-buttons>
+    <ion-title>New-item</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!--Body-->
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+<img src="assets/test_images/{{image}}" class="img">
+    </ion-item>
+
+    <ion-item>
+      <ion-range step="20" color="secondary" [(ngModel)]="rating" (ionChange)="onSetRating(rating)">
+        <ion-icon range-left  color="star" small name="star-outline"></ion-icon>
+        <ion-icon range-right color="star" name="star"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-left>
+               <ion-icon name="pin" color="red"  (click)="onLoadPlaceSelect()"></ion-icon>
+      </ion-avatar>
+      <h2 (click)="onLoadPlaceSelect()">{{  selPlace  }}</h2>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-left>
+               <ion-icon name="pricetag"></ion-icon>
+      </ion-avatar>
+      <ion-label>Item Price</ion-label>
+      <ion-input type="number" name="price" [(ngModel)]="price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-left>
+               <ion-icon name="attach"></ion-icon>
+      </ion-avatar>
+      <ion-label>Add a caption</ion-label>
+      <ion-input type="text" name="caption" [(ngModel)]="caption"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-left>
+               <ion-icon name="clipboard"></ion-icon>
+      </ion-avatar>
+      <ion-label>Comments</ion-label>
+      <ion-input type="text" name="comment" [(ngModel)]="comment"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

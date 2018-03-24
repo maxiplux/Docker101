@@ -1,0 +1,141 @@
+# Whoper
+# This file defines two services and a load balancer proxy, the db service and API service
+version: '3'
+services:
+  postgres:
+    build: ./SQL
+    environment:
+      POSTGRES_USER: whoperadmin
+      POSTGRES_DB: whoperdb
+      POSTGRES_PASSWORD: montanoarango
+    volumes:
+      - db-whoper:/var/lib/postgresql/data
+    restart: always
+    networks:
+      whoper:
+    expose:
+      - "5432"
+
+  users:
+    build: ./API/UsersService
+    restart: always
+    depends_on:
+      - postgres
+    links:
+      - "postgres:postgres"
+    networks:
+      whoper:
+    expose:
+      - "3001"
+    volumes:
+      - ./API/UsersService/bin/UsersAPI-linux:/bin/UsersAPI-linux
+
+  posts:
+    build: ./API/PostsService
+    restart: always
+    depends_on:
+      - postgres
+    links:
+      - "postgres:postgres"
+    networks:
+      whoper:
+    expose:
+      - "3002"
+    volumes:
+      - ./API/PostsService/bin/PostsAPI-linux:/bin/PostsAPI-linux
+
+  ntwrs:
+    build: ./API/NetworkService
+    restart: always
+    depends_on:
+      - postgres
+    links:
+      - "postgres:postgres"
+    networks:
+      whoper:
+    expose:
+      - "3003"
+    volumes:
+      - ./API/NetworkService/bin/NetworkAPI-linux:/bin/NetworkAPI-linux
+
+  images:
+    build: ./API/ImagesService
+    restart: always
+    depends_on:
+      - postgres
+    links:
+      - "postgres:postgres"
+    networks:
+      whoper:
+    expose:
+      - "3004"
+    volumes:
+      - ./API/ImagesService/bin/ImagesAPI-linux:/bin/ImagesAPI-linux
+
+  auth:
+    build: ./API/AuthService
+    restart: always
+    depends_on:
+      - postgres
+    networks:
+      whoper:
+    expose:
+      - "5001"
+    volumes:
+      - ./API/AuthService/bin/AuthServer-linux:/bin/AuthServer-linux
+
+  kong-database:
+    image: postgres:9.6.4
+    environment:
+      POSTGRES_USER: kong
+      POSTGRES_DB: kong
+    expose:
+      - "5432"
+    networks:
+      kong:
+    volumes:
+      - db-kong:/var/lib/postgresql/data
+    restart: always
+
+  kong-migration:
+    image: kong:0.11
+    depends_on:
+      - kong-database
+    networks:
+      kong:
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+    command: kong migrations up
+
+  kong:
+    image: kong:0.11
+    depends_on:
+      - kong-database
+      - kong-migration
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_DATABASE: kong
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+    networks:
+      kong:
+      whoper:
+    ports:
+      - "8081:8000"
+      - "8001:8001"
+      - "8443:8443"
+      - "8444:8444"
+    restart: always
+
+networks:
+  whoper:
+  kong:
+
+volumes:
+  db-whoper:
+  db-kong:
+# EOF!

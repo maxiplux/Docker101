@@ -1,0 +1,58 @@
+<!--Header-->
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button clear (click)="onReturn()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button clear (click)="onLoadImageSettings(ev)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<!--Body-->
+<ion-content padding class="image-sel">
+
+<ion-slides>
+  <ion-slide>
+    <img src="assets/test_images/instagram-image-size-vertical-new.png" class="card-img">
+  </ion-slide>
+</ion-slides>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row >
+      <ion-col col-2>
+      <button large clear ion-button  color="red">
+        <ion-icon name="remove-circle"></ion-icon></button>
+      </ion-col>
+      <ion-col  col-2>
+      <button large clear ion-button>
+        <ion-icon color="gold" name="star"></ion-icon></button>
+      </ion-col>
+      <ion-col  col-2>
+      <button large clear ion-button>
+        <ion-icon color="gold" name="star"></ion-icon></button>
+      </ion-col>
+      <ion-col  col-2>
+      <button large clear ion-button>
+        <ion-icon color="gold" name="star"></ion-icon></button>
+      </ion-col>
+      <ion-col  col-2>
+      <button large clear ion-button>
+        <ion-icon color="gold" name="star"></ion-icon></button>
+      </ion-col>
+      <ion-col  col-2>
+      <button large clear ion-button>
+        <ion-icon color="gold" name="star"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
+</ion-content>
