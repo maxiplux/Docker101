@@ -3,7 +3,7 @@
 ## Intro
 Introducir al desarrollador la plataforma docker y familiarizarse con el concepto de contenedores. Aprender buenas prácticas de desarrollo en contenedores. Desplegar apps desde docker utilizando el CLI y las herramientas más avanzadas como docker compose.
 
-##Objetivos
+## Objetivos
  - Conocimiento básico de docker
  - Buen manejo del Dockerfile
  - Intercomunicar contenedores con datos o red.
