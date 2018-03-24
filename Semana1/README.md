@@ -1,5 +1,6 @@
 # Intro to Docker
-## Basic Docker commands
+## Semana 1
+### Basic Docker commands
 
 Listar imagenes en mi equipo
 ```bash
@@ -19,7 +20,7 @@ Eliminar un contenedor
 $ Docker rm hola
 ```
 
-## Docker hub
+### Docker hub
 > Docker Hub is a cloud-based registry service which allows you to link to code repositories, build your images and test them, stores manually pushed images, and links to Docker Cloud so you can deploy images to your hosts. It provides a centralized resource for container image discovery, distribution and change management, user and team collaboration, and workflow automation throughout the development pipeline.
 
 Vamos a crear nuestra cuenta en el repositorio de imagenes publicas de Docker
@@ -48,7 +49,7 @@ $ exit
 $ Docker rmi alpine
 ```
 
-# Docker Images
+### Docker Images
 Primero vamos a configurar el pc actual con nuestro usuario de Docker Hub
 
 ```bash
@@ -73,7 +74,7 @@ Corremos el contenedor a partir de la imagen que creamos
 ```bash
 $ docker run --rm --name ejemploPi $DOCKER_ID_USER/pi_image 100
 ```
-## Docker hub
+### Docker hub
 
 Vamos a cargar nuestra imagen al repositorio de Docker hub
 
@@ -83,7 +84,7 @@ $ docker push $DOCKER_ID_USER/pi_image
 
 Vamos a [DockerHub](https://hub.docker.com/) a revisar que nuestra imagen se encuentra ahora en un repositorio publico, y puedo descargarla desde cualquier equipo que cuente con Docker instalado.
 
-## To go!
+### To go!
 
 y que si no quiero subir mi imagen a un repositorio local, en lugar de eso quiero tener mi imagen de forma portable.
 

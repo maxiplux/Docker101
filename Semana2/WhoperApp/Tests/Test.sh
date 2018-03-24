@@ -172,10 +172,6 @@ curl -i -X POST \
 --url 'http://localhost:8081/ntwrsapi/groups/1/11/2' \
 -H 'apikey: yKU6S4cxPITUWfls9xOwXsANlwXde7nu'
 
-
-
-
-
 curl -i -X POST \
 --url 'http://localhost:8081/postsapi/posts?price=10000&post_owner=1&rating=4&location=%281%2C1%29&caption=blue%20pants&group=Private' \
 -H 'apikey: YoXr17614d9zKgF89v7MlDiPFF8hnXfw'
@@ -185,8 +181,4 @@ curl -i -X POST \
 --url 'http://localhost:8081/imagesapi/image' \
 --data 'url=https://static2.fjcdn.com/thumbnails/comments/5488497+_35ece9585d73add9dc2d0ab5489a0198.png' \
 -H 'apikey: YoXr17614d9zKgF89v7MlDiPFF8hnXfw'
-
-
-
-
 # EOF!
