@@ -8,11 +8,7 @@ MAINTAINER <NOMBRE> <EMAIL>
 COPY . /usr/src/myapp
 
 # Cambiar de directorio (Por defecto se esta en /)
-WORKDIR /usr/src/myapp
-
-# Se Compila el binario de la aplicacion
-RUN gcc pi.c -lm -o pi
-RUN cp pi /bin
+RUN cd /usr/src/myapp && gcc pi.c -lm -o pi &&  cp pi /bin
 
 # Comando a ejecutar al correr el contenedor 
 ENTRYPOINT ["pi"]

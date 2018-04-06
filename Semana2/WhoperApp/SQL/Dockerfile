@@ -1,5 +1,5 @@
 # Whoper DataBase
-# Build in postgres:9.6.4
+# Build in postgres:9.6.8
 FROM postgres:9.6.4
 MAINTAINER Eduardo Arango <arangogutierrez@gmail.com>
 

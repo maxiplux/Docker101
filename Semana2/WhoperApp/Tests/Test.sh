@@ -3,7 +3,7 @@
 ##### User ADD
 # Add user Homero
 curl -i -X POST \
---url 'http://localhost:8081/auth/users?user_name=Homero&user_login=Homero&pwd=homerpaswd&email=homero%40whoper.com&gender=machine&location=(0,0)'
+--url 'http://localhost:5001/users?user_name=Homero&user_login=Homero&pwd=homerpaswd&email=homero%40whoper.com&gender=machine&location=(0,0)'
 
 # Add user Marge
 curl -i -X POST \
