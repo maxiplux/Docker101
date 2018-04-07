@@ -4,9 +4,9 @@ export PS4="\[\e[33m\]Running:\[\e[m\] "
 
 set -eux
 
-docker-machine create -d virtualbox manager1
-docker-machine create -d virtualbox worker1
-docker-machine create -d virtualbox worker2
+docker-machine create --driver vmwarefusion manager1
+docker-machine create --driver vmwarefusion worker1
+docker-machine create --driver vmwarefusion worker2
 
 # Let the Docker client talk to `manager1`
 eval $(docker-machine env manager1)
