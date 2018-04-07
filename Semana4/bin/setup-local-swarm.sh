@@ -7,6 +7,7 @@ set -eux
 docker-machine create --driver vmwarefusion manager1
 docker-machine create --driver vmwarefusion worker1
 docker-machine create --driver vmwarefusion worker2
+docker-machine create --driver vmwarefusion worker3
 
 # Let the Docker client talk to `manager1`
 eval $(docker-machine env manager1)
