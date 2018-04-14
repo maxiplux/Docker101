@@ -1,0 +1,74 @@
+version: "3"
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    links:
+      - vote
+      - result
+    networks:
+      - front-tier
+    depends_on:
+      - vote
+      - result
+    restart: always
+  vote:
+    build: ./vote
+    command: python app.py
+    volumes:
+     - ./vote:/app
+    expose:
+      - "80"
+    networks:
+      - front-tier
+      - back-tier
+    restart: always
+
+  result:
+    build: ./result
+    command: nodemon server.js
+    volumes:
+      - ./result:/app
+    expose:
+      - "80"
+      - "5858"
+    networks:
+      - front-tier
+      - back-tier
+    restart: always
+
+  worker:
+    build:
+      context: ./worker
+    depends_on:
+      - "redis"
+    networks:
+      - back-tier
+    restart: always  
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports: ["6379"]
+    networks:
+      - back-tier
+    restart: always
+
+  db:
+    image: postgres:9.4
+    container_name: db
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    networks:
+      - back-tier
+    restart: always
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:
